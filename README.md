@@ -163,21 +163,5 @@ uvicorn app.main:app --reload --port 8000
 
 ---
 
-## 🌐 Deployment Guide
-
-### Deploying Frontend on Vercel
-1. Import repository on [Vercel](https://vercel.com/new).
-2. Set **Root Directory** to `frontend`.
-3. Add Environment Variable:
-   - `NEXT_PUBLIC_API_URL`: Your deployed backend URL (e.g. `https://your-api.onrender.com/api`).
-4. Click **Deploy**.
-
-### Deploying Backend & ML Service
-- **Backend (Node.js)**: Deploy to [Render](https://render.com) or [Railway](https://railway.app) with root directory `backend`, start command `npm start`, and environment variables `MONGO_URI` and `JWT_SECRET`.
-- **Database**: Use a free cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
-- **ML Service (FastAPI)**: Deploy to Render / Railway using `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
-
----
-
 ## 📄 License
 This project is open source and available under the [MIT License](LICENSE).
