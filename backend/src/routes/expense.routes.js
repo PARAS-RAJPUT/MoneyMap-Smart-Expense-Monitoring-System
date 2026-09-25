@@ -4,12 +4,14 @@ import {
   createExpense,
   deleteExpense,
   getExpenses,
+  getStats,
   updateExpense
 } from "../controllers/expense.controller.js";
 
 const router = Router();
 
 router.use(auth);
+router.get("/stats", getStats);
 router.route("/").get(getExpenses).post(createExpense);
 router.route("/:id").put(updateExpense).delete(deleteExpense);
 

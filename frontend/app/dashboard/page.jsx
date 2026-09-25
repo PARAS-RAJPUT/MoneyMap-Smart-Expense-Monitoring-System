@@ -11,10 +11,11 @@ import RecentTransactions from "../../components/RecentTransactions";
 import MobileFooterNav from "../../components/MobileFooterNav";
 import NewExpenseModal from "../../components/NewExpenseModal";
 
-export default function ExpensesPage() {
+export default function DashboardPage() {
   const [expenses, setExpenses] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [timeFilter, setTimeFilter] = useState("month"); // "week" | "month"
+  const [userName, setUserName] = useState("");
 
   const fetchExpenses = async () => {
     try {
@@ -27,6 +28,13 @@ export default function ExpensesPage() {
 
   useEffect(() => {
     fetchExpenses();
+    try {
+      const stored = localStorage.getItem("user");
+      if (stored) {
+        const u = JSON.parse(stored);
+        if (u.name) setUserName(u.name.split(" ")[0]);
+      }
+    } catch {}
   }, []);
 
   const addExpense = async (payload) => {
@@ -69,7 +77,7 @@ export default function ExpensesPage() {
                 Dashboard Overview
               </h1>
               <p className="text-slate-500 dark:text-slate-400 mt-1">
-                Welcome back! Here&apos;s your spending summary for {monthName}.
+                {userName ? `Welcome back, ${userName}! ` : "Welcome back! "}Here&apos;s your spending summary for {monthName}.
               </p>
             </div>
             <div className="flex items-center gap-3 bg-white dark:bg-[#0f172a] p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">

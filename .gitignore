@@ -1,9 +1,22 @@
 # Dependencies
 node_modules/
+backend/node_modules/
+frontend/node_modules/
+**/node_modules/
+**/venv/
+**/.venv/
+**/env/
+**/__pycache__/
+*.pyc
+*.pkl
 
 # Environment files
 .env
 .env.local
+.env.*.local
+*.env
+**/.env
+**/.env.local
 
 # Logs
 *.log
@@ -13,10 +26,14 @@ yarn-error.log*
 
 # Build outputs
 .next/
-dist/
+frontend/.next/
+**/dist/
+**/out/
+**/build/
 coverage/
 
 # OS/editor
 .DS_Store
 Thumbs.db
 .vscode/
+.idea/

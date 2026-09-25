@@ -1,7 +1,45 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&f[]=general-sans@600,500&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-slate-50 text-slate-900;
+  font-family: 'Satoshi', sans-serif;
+  @apply text-slate-900 bg-slate-50 transition-colors duration-200;
+}
+
+.dark body {
+  @apply text-slate-100 bg-[#090e1a];
+}
+
+.heading-font {
+  font-family: 'General Sans', sans-serif;
+}
+
+.gradient-bg {
+  background: radial-gradient(circle at top right, #dcfce7 0%, transparent 40%),
+              radial-gradient(circle at bottom left, #dbeafe 0%, transparent 40%),
+              #f8fafc;
+}
+
+.dark .gradient-bg {
+  background: radial-gradient(circle at top right, rgba(6, 78, 59, 0.18) 0%, transparent 45%),
+              radial-gradient(circle at bottom left, rgba(30, 58, 138, 0.22) 0%, transparent 45%),
+              #090e1a;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+  border-radius: 10px;
+}
+
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #1e293b;
 }
